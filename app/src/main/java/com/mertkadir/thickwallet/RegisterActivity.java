@@ -39,26 +39,33 @@ public class RegisterActivity extends AppCompatActivity {
     public void register (View view) {
         String email = binding.emailText2.getText().toString();
         String password = binding.passwordText2.getText().toString();
+        String password2 = binding.passwordText3.getText().toString();
 
         if (email.equals("") || password.equals("")) {
             Toast.makeText(RegisterActivity.this, "Enter Email and Password", Toast.LENGTH_LONG).show();
         }
         else {
-            auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                @Override
-                public void onSuccess(AuthResult authResult) {
-                    Intent intent = new Intent(RegisterActivity.this, WalletActivity.class);
-                    startActivity(intent);
-                    finish();
+            if (!password.equals(password2)) {
+                Toast.makeText(RegisterActivity.this, "Passwords does not match", Toast.LENGTH_LONG).show();
+            } else {
 
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(RegisterActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-        }
+                auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(RegisterActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+            }
+
 
     }
 
