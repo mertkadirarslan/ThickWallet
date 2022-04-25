@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.mertkadir.thickwallet.ProfileActivity;
 import com.mertkadir.thickwallet.databinding.ActivityWalletBinding;
 
 public class WalletActivity extends AppCompatActivity {
@@ -26,7 +27,11 @@ public class WalletActivity extends AppCompatActivity {
 
     }
 
-
+    public void profile (View view) {
+        Intent intent = new Intent(WalletActivity.this, ProfileActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     public void configButton (View view) {
         Intent intent = new Intent(WalletActivity.this, SettingsActivity.class);

@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".view.SettingsActivity"

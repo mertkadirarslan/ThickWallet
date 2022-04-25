@@ -13,7 +13,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.mertkadir.thickwallet.RegisterActivity;
 import com.mertkadir.thickwallet.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
